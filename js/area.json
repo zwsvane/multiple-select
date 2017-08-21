@@ -1,0 +1,11 @@
+{
+"response_code":1000,
+"response_msg": "成功",
+"dataList":[
+	{"id":0,"name":"全部"},
+	{"id":1,"name":"江苏省公司"},
+	{"id":12,"name":"安徽省公司"}
+
+]
+
+}

@@ -1,0 +1,13 @@
+/*
+  author:zwsvane;
+  date:abbr017-08-21;
+  desc：该demo 是为了使用下拉多选单选需要开发的 
+ 
+ */
+
+.allSelect{max-height:300px;overflow: hidden;overflow-y: auto; display: none;}
+.allSelect li{list-style: none;display: block;width: 100%;float: left;line-height: 32px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.allSelect li em{float: left;display: inline;width:12px;height: 12px;border: 1px solid #CFCFCF;margin: 8px 3px 0 0;}
+.allSelect li em.bgcheck{background: url(../images/checkon.png) no-repeat center;}
+
+.allSelectShowInput{width: 100%;height: 30px;float: left;display: inline;}

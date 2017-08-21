@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>下拉多选框</title>
+		<link type="text/css" href="css/zws-select-multiple.css" rel="stylesheet" />
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/zws-sesct-multiple.js"></script>
+	</head>
+	<body>
+		
+		<span class="select radius height32  pos-r selectOptionAll">
+			<p class="col-xs-12 lh-30 text-overflow  pl-5 pr-20 mb-0 showContain"><input class="allSelectShowInput" type="text" name="" value="请选择" /></p>
+			<b class="Hui-iconfont pos-a lh-30 right6">&#xe6d5;</b>
+			<!--模拟选择框-->
+			<div class="col-xs-12  pos-a top30 z-index30 bg-fff select radius allSelect pl-5 pr-5">
+				<ul id="bigarea">
+					<li><em data-value="全部"></em>全部</li>
+					<li title="江苏省公司江苏省公司"><em data-value="江苏省公司江苏省公司"></em>江苏省公司江苏省公司</li>
+					<li title="安徽省公司1"><em data-value="安徽省公司"></em>安徽省公司</li>
+					<li title="上海市公司"><em data-value="上海市公司"></em>上海市公司</li>
+					<li title="北京市公司"><em data-value="北京市公司"></em>北京市公司</li>
+					<li title="江苏省公司"><em data-value="江苏省公司"></em>江苏省公司</li>
+					<li title="安徽省公司"><em data-value="安徽省公司1"></em>安徽省公司1</li>
+					<li title="上海市公司"><em data-value="上海市公司2"></em>上海市公司2</li>
+					<li title="北京市公司"><em data-value="北京市公司3"></em>北京市公司3</li>
+				</ul>
+			</div>
+		</span>
+		<script type="text/javascript">
+		$(function(){
+		
+			//大区选择
+			function areaJson(){
+				
+				$.ajax({
+					type:"get",
+					url:"js/area.json",
+					   success: function (r) {
+					   	
+	                    if (r.response_code == 1000) {
+	                        	$("#bigarea").html('');
+	                        var infoList ='';
+	                        
+	                        $.each(r.dataList,function(index,item){
+	                        	var textname = "'"+item.name+"'";
+	                        	infoList+='<li title="'+item.name+'" onclick="textShow(\'.showContain\','+textname+',$(this))"><em data-value="'+item.id+'"></em>'+item.name+'</li>'
+	                        	
+	                        });
+	                        
+	                       $(infoList).appendTo($("#bigarea"));
+						                     
+	                        
+	                    }
+	                },
+				});
+				
+			};
+			
+			areaJson();
+		});
+		</script>
+	</body>
+</html>
